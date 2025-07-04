@@ -2,10 +2,7 @@
 
 **Digital Signal Processing Project**  
 **Title:** *Implementation of Finite Impulse Response Filter (FIR) for Noise Reduction in Audio Signals*  
-**Course:** COMP 407 — Digital Signal Processing  
-**Institution:** Kathmandu University  
-**Submitted by:** Dikshyant Adhikari & Nitin Ghimire  
-**Date:** July 5, 2025
+
 
 ---
 
