@@ -26,15 +26,15 @@ Audio was recorded in a noisy environment with fan hum and saved in `.wav` forma
 ```python
 fs, audio = wavfile.read("resource/output.wav")
 
-2. FIR Filter Design
+### 2. FIR Filter Design
 A band-pass FIR filter was designed using scipy.signal.firwin:
 fir_coeff = firwin(numtaps=301, cutoff=[1000, 5000], pass_zero=False)
 
-3. FIR Filter Application
+### 3. FIR Filter Application
 The filter was applied using digital convolution:
 filtered_audio = lfilter(fir_coeff, 1.0, audio)
 
-4. Wiener Filtering
+### 4. Wiener Filtering
 Residual noise was removed using:
 filtered_audio = wiener(filtered_audio, mysize=20)
 
