@@ -5,10 +5,13 @@ from scipy.signal import firwin, lfilter, freqz
 
 fs, audio = wavfile.read("resource/output.wav") 
 
+if audio.ndim == 2:
+    audio = audio.mean(axis=1)
+
 # === Step 2: Design FIR Band-Pass Filter ===
-numtaps = 401                  # Number of filter taps (higher = sharper)
-low_cutoff = 300               # Low cutoff frequency in Hz
-high_cutoff = 301            # High cutoff frequency in Hz
+numtaps = 301                  # Number of filter taps (higher = sharper)
+low_cutoff = 1000               # Low cutoff frequency in Hz
+high_cutoff = 5000            # High cutoff frequency in Hz
 nyquist = fs / 2                # Nyquist frequency
 
 # Normalized cutoff frequencies for bandpass filter
