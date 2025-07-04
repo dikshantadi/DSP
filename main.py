@@ -3,13 +3,12 @@ import matplotlib.pyplot as plt
 from scipy.io import wavfile
 from scipy.signal import firwin, lfilter, freqz
 
-# === Step 1: Load the audio file ===
-fs, audio = wavfile.read("resource/output.wav")  # Change path if needed
+fs, audio = wavfile.read("resource/output.wav") 
 
 # === Step 2: Design FIR Band-Pass Filter ===
-numtaps = 101                   # Number of filter taps (higher = sharper)
-low_cutoff = 300                # Low cutoff frequency in Hz
-high_cutoff = 3400              # High cutoff frequency in Hz
+numtaps = 401                  # Number of filter taps (higher = sharper)
+low_cutoff = 300               # Low cutoff frequency in Hz
+high_cutoff = 301            # High cutoff frequency in Hz
 nyquist = fs / 2                # Nyquist frequency
 
 # Normalized cutoff frequencies for bandpass filter
@@ -57,13 +56,13 @@ plt.grid()
 plt.show()
 
 # === Step 7: Plot zoomed waveform before and after filtering ===
-samples_to_plot = 400
-plt.figure(figsize=(10, 4))
-plt.plot(audio[:samples_to_plot], label="Original")
-plt.plot(filtered_audio[:samples_to_plot], label="Filtered", alpha=0.75)
+time = np.arange(len(audio)) / fs
+plt.figure(figsize=(12, 4))
+plt.plot(time, audio, label='Original')
+plt.plot(time, filtered_audio, label='Filtered', alpha=0.7)
+plt.xlabel('Time [seconds]')
+plt.ylabel('Amplitude')
+plt.title('Original vs bandpass Filtered Audio Waveform')
 plt.legend()
-plt.title("Zoomed Waveform: Before and After FIR Filtering")
-plt.xlabel("Sample Index")
-plt.ylabel("Amplitude")
 plt.grid()
 plt.show()
