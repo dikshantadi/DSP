@@ -1,4 +1,4 @@
-# 🎧 FIR Filter for Audio Noise Reduction in Python
+# FIR Filter for Audio Noise Reduction in Python
 
 **Digital Signal Processing Project**  
 **Title:** *Implementation of Finite Impulse Response Filter (FIR) for Noise Reduction in Audio Signals*  
@@ -6,7 +6,7 @@
 
 ---
 
-## 📌 Objective
+##  Objective
 
 To reduce unwanted noise such as **fan hum** and **white noise** from `.wav` audio recordings using:
 
@@ -15,7 +15,7 @@ To reduce unwanted noise such as **fan hum** and **white noise** from `.wav` aud
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 project-root/
@@ -27,9 +27,9 @@ project-root/
 
 ---
 
-## 📈 Methodology
+##  Methodology
 
-### 1. 🎙️ Audio Data Acquisition
+### 1.  Audio Data Acquisition
 
 Audio was recorded in a noisy indoor environment and stored in `.wav` format for processing.
 
@@ -40,7 +40,7 @@ fs, audio = wavfile.read("resource/output.wav")
 
 ---
 
-### 2. 🎛️ FIR Filter Design
+### 2.  FIR Filter Design
 
 A **band-pass FIR filter** was created using `scipy.signal.firwin` to pass frequencies between 1000 Hz and 5000 Hz:
 
@@ -55,7 +55,7 @@ fir_coeff = firwin(numtaps=301, cutoff=[1000, 5000], pass_zero=False)
 
 ---
 
-### 3. 🧮 FIR Filter Application
+### 3.  FIR Filter Application
 
 The filter was applied using digital convolution (`lfilter`) to suppress low and high-frequency noise:
 
@@ -67,7 +67,7 @@ filtered_audio = lfilter(fir_coeff, 1.0, audio)
 
 ---
 
-### 4. 🧠 Wiener Filtering
+### 4.  Wiener Filtering
 
 An adaptive Wiener filter was used to further reduce remaining white noise:
 
@@ -81,7 +81,7 @@ filtered_audio = wiener(filtered_audio, mysize=20)
 
 ---
 
-## 📊 Results and Observations
+##  Results and Observations
 
 - **Fan hum (low-frequency noise)** and **white noise (high-frequency hiss)** were significantly reduced.
 
@@ -97,7 +97,7 @@ filtered_audio = wiener(filtered_audio, mysize=20)
 
 ---
 
-## ✅ Conclusion
+##  Conclusion
 
 This project successfully demonstrated the practical use of classical DSP techniques — **FIR filtering** and **Wiener filtering** — for **audio noise reduction** using Python.
 
@@ -105,7 +105,7 @@ This project successfully demonstrated the practical use of classical DSP techni
 
 ---
 
-## 📚 References
+##  References
 
 - Oppenheim & Schafer — *Discrete-Time Signal Processing*
 - R.G. Lyons — *Understanding Digital Signal Processing*
