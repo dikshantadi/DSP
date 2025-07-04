@@ -8,7 +8,7 @@ fs, audio = wavfile.read("resource/output.wav")
 if audio.ndim == 2:
     audio = audio.mean(axis=1)
 
-# FIR filter 
+# FIR BandPass filter 
 numtaps = 301                  
 low_cutoff = 1000               
 high_cutoff = 5000            
